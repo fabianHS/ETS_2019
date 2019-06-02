@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package refactgit;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,33 +16,32 @@ public class RefactGit {
     /**
      * @param args the command line arguments
      */
-    static int nf=0;
-    static int nc =0;
-    static int columna =0;
+    static int Numero_filas=0;
+    static int Numero_columnas =0;
+    static int numero =0;
+    static int matriz[][] = new int[Numero_filas][Numero_columnas];
     
     public static void main(String[] args) {
         // TODO code application logic here
         
-        columna= Integer.parseInt(JOptionPane.showInputDialog("Desea realizar la matriz: \n1: Matriz de 3 \n2: Matriz de 4 \n3: Matriz de 5"));
+        numero= Integer.parseInt(JOptionPane.showInputDialog("Desea realizar la matriz: \n1: Matriz de 3 \n2: Matriz de 4 \n3: Matriz de 5"));
         
         
-        crear_matriz(columna);
+        crear_matriz(numero);
         
-        int matriz[][] = new int[nf][nc];
+        llenar_matriz();
         
-        // LLenar matriz
-        for (int i = 0; i < nf; i++) {
-            for (int j = 0; j < nc; j++) {
-                 matriz[i][j] = Integer.parseInt(JOptionPane.showInputDialog("Ingrese valor para la posicion ["+(i+1)+" "+(j+1)+"] de la matriz"));
-            }
-        }
+        imprimir_matriz();
         
+    }
+
+    public static void imprimir_matriz() throws HeadlessException {
         // Imprimir matriz
         
         String resultado = "";
         
-        for (int i = 0; i < nf; i++) {
-            for (int j = 0; j < nc; j++) {
+        for (int i = 0; i < Numero_filas; i++) {
+            for (int j = 0; j < Numero_columnas; j++) {
                 resultado += matriz[i][j];
                 resultado += " ";
             }
@@ -49,14 +49,22 @@ public class RefactGit {
         }
         
         JOptionPane.showMessageDialog(null,resultado);
-        
+    }
+
+    public static void llenar_matriz() throws HeadlessException, NumberFormatException {
+        // LLenar matriz
+        for (int i = 0; i < Numero_filas; i++) {
+            for (int j = 0; j < Numero_columnas; j++) {
+                matriz[i][j] = Integer.parseInt(JOptionPane.showInputDialog("Ingrese valor para la posicion [" + (i + 1) + " " + (j + 1) + "] de la matriz"));
+            }
+        }
     }
     
     public static void crear_matriz(int numero) {
         
-        if(numero == 1){nf=3; nc =3; }
-        if(numero == 2){nf=4; nc =4; }
-        if(numero == 3){nf=5; nc =5; }
+        if(numero == 1){Numero_filas=3; Numero_columnas =3; }
+        if(numero == 2){Numero_filas=4; Numero_columnas =4; }
+        if(numero == 3){Numero_filas=5; Numero_columnas =5; }
         
     }
     
