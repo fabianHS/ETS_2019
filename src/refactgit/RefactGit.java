@@ -10,7 +10,7 @@ public class RefactGit {
 
    //modificacion en nombre de variable
     static int Numero_Fila=0;
-    static int nc =0;
+    static int Numero_Columna =0;
     static int columna =0;
     
     public static void main(String[] args) {
@@ -21,11 +21,11 @@ public class RefactGit {
         
         crear_matriz(columna);
         
-        int matriz[][] = new int[Numero_Fila][nc];
+        int matriz[][] = new int[Numero_Fila][Numero_Columna];
         
         // LLenar matriz
         for (int i = 0; i < Numero_Fila; i++) {
-            for (int j = 0; j < nc; j++) {
+            for (int j = 0; j < Numero_Columna; j++) {
                  matriz[i][j] = Integer.parseInt(JOptionPane.showInputDialog("Ingrese valor para la posicion ["+(i+1)+" "+(j+1)+"] de la matriz"));
             }
         }
@@ -35,7 +35,7 @@ public class RefactGit {
         String resultado = "";
         
         for (int i = 0; i < Numero_Fila; i++) {
-            for (int j = 0; j < nc; j++) {
+            for (int j = 0; j < Numero_Columna; j++) {
                 resultado += matriz[i][j];
                 resultado += " ";
             }
@@ -48,9 +48,9 @@ public class RefactGit {
     
     public static void crear_matriz(int numero) {
         
-        if(numero == 1){Numero_Fila=3; nc =3; }
-        if(numero == 2){Numero_Fila=4; nc =4; }
-        if(numero == 3){Numero_Fila=5; nc =5; }
+        if(numero == 1){Numero_Fila=3; Numero_Columna =3; }
+        if(numero == 2){Numero_Fila=4; Numero_Columna =4; }
+        if(numero == 3){Numero_Fila=5; Numero_Columna =5; }
         
     }
     
